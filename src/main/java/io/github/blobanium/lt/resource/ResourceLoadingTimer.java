@@ -15,21 +15,21 @@ public class ResourceLoadingTimer {
     private static double resourceResult;
     public static boolean resourcesLoaded = false;
 
-    public static void startTimer(){
+    public static void startTimer() {
         resourcesLoaded = false;
-        if(ConfigReader.insanePrecision){
+        if (ConfigReader.insanePrecision) {
             resourceStartingTime = System.nanoTime();
         } else {
             resourceStartingTime = System.currentTimeMillis();
         }
     }
 
-    public static void stopTimer(){
-        if(!resourcesLoaded){
+    public static void stopTimer() {
+        if (!resourcesLoaded) {
             resourceResult = MathUtil.roundValue(MathUtil.calculateMain(resourceStartingTime));
             LOGGER.info("Resource Loading Time: " + resourceResult + " seconds");
-            if(ConfigReader.resourceLoadNotif){
-                if(LoadingTimer.timerDone || ConfigReader.resourceLoadNotifStartupOverride){
+            if (ConfigReader.resourceLoadNotif) {
+                if (LoadingTimer.timerDone || ConfigReader.resourceLoadNotifStartupOverride) {
                     ToastExecutor.executeToast("loading-timer.resource_loading_text", resourceResult);
                 }
             }

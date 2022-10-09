@@ -34,7 +34,7 @@ public class ConfigReader {
     	final boolean rawLoadingToastConfig = CONFIG.getOrDefault("raw_loading_toast", rawLoadingToast);
     	if (insanePrecisionConfig) {
     		LOGGER.debug("Insane Precision is on");
-    		LoadingTimer.STARTINGTIME2 = LoadingTimer.startingTimeNano;
+    		LoadingTimer.startingTime2 = LoadingTimer.startingTimeNano;
     		insanePrecision = true;
     	}
     	if(worldLoadTimeConfig){

@@ -18,19 +18,18 @@ public class SimpleResourceReloadMixin {
     private static final Logger LOGGER = LogManager.getLogger("Loading Timer");
     private float lastReading = 0;
 
-    @Inject(at = @At("TAIL"), method = "getProgress")
-    private float getProgress(CallbackInfoReturnable<Float> ci){
+    @Inject(at = @At("RETURN"), method = "getProgress")
+    private void getProgress(CallbackInfoReturnable<Float> ci) {
         float loadPercent = (ci.getReturnValueF() * 100);
-        if(!(lastReading == ci.getReturnValueF())){
-            if(ConfigReader.resourceLoadPercent){
-            LOGGER.info("Resource loading progress: " + MathUtil.roundValue(loadPercent) + " %");
+        if (lastReading != ci.getReturnValueF()) {
+            if (ConfigReader.resourceLoadPercent) {
+                LOGGER.info("Resource loading progress: " + MathUtil.roundValue(loadPercent) + " %");
             }
             lastReading = ci.getReturnValueF();
-            if(loadPercent == 100.0F){
+            if (loadPercent == 100.0F) {
                 ResourceLoadingTimer.stopTimer();
                 LoadingTimer.resourcesLoaded = true;
             }
         }
-        return ci.getReturnValueF();
     }
 }

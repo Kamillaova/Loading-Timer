@@ -19,34 +19,41 @@
     "main": [
       "io.github.blobanium.lt.LoadingTimer"
     ],
-    "server":[
+    "server": [
       "io.github.blobanium.lt.LoadingTimerServer"
     ],
-    "preLaunch":[
+    "preLaunch": [
       "io.github.blobanium.lt.LoadingTimerPreLaunch"
     ],
     "modmenu": [
       "io.github.blobanium.lt.config.ModMenuConfig"
     ]
   },
-  "mixins": 
-  ["loading-timer.mixins.json"],
+  "mixins": [
+    "loading-timer.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.12.10",
-    "minecraft": ["1.18.*"],
+    "minecraft": [
+      "1.18.*"
+    ],
     "fabric": "*",
     "java": ">=17"
   },
-  "recommends":{
+  "recommends": {
     "cloth-config2": "*",
-    "minecraft": ["1.18.*"]
+    "minecraft": [
+      "1.18.*"
+    ]
   },
   "conflicts": {
-    "ksyxis": ["1.0"]
+    "ksyxis": [
+      "1.0"
+    ]
   },
   "custom": {
-    "modmenu":{
-      "links":{
+    "modmenu": {
+      "links": {
         "modmenu.discord": "https://discord.gg/GkZtk5RkyG"
       }
     }

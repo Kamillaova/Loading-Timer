@@ -19,8 +19,8 @@ public class BootstrapMixin {
     private static long bootstrapTime;
 
     @Inject(at = @At("HEAD"), method = "initialize")
-    private static void initializeStart(CallbackInfo ci){
-        if(ConfigReader.insanePrecision){
+    private static void initializeStart(CallbackInfo ci) {
+        if (ConfigReader.insanePrecision) {
             bootstrapTime = System.nanoTime();
         } else {
             bootstrapTime = System.currentTimeMillis();
@@ -28,13 +28,13 @@ public class BootstrapMixin {
     }
 
     @Inject(at = @At("TAIL"), method = "initialize")
-    private static void initializeEnd(CallbackInfo ci){
-        if(ConfigReader.insanePrecision){
+    private static void initializeEnd(CallbackInfo ci) {
+        if (ConfigReader.insanePrecision) {
             LoadingTimer.finalBootstrapTime = MathUtil.roundValue(System.nanoTime() - bootstrapTime) / 1000000000;
         } else {
             LoadingTimer.finalBootstrapTime = MathUtil.roundValue(System.currentTimeMillis() - bootstrapTime) / 1000;
         }
 
-        LoadingTimer.LOGGER.info ("Bootstrap Time: " + LoadingTimer.finalBootstrapTime + "s");
+        LoadingTimer.LOGGER.info("Bootstrap Time: " + LoadingTimer.finalBootstrapTime + "s");
     }
 }
