@@ -1,11 +1,9 @@
 package io.github.blobanium.lt.mixin;
 
-import io.github.blobanium.lt.LoadingTimer;
 import io.github.blobanium.lt.config.ConfigReader;
 import io.github.blobanium.lt.toast.ToastExecutor;
 import io.github.blobanium.lt.util.math.MathUtil;
 import net.minecraft.server.WorldGenerationProgressLogger;
-import net.minecraft.util.math.ChunkPos;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;

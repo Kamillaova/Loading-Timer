@@ -6,11 +6,11 @@
   "mixins": [
   ],
   "client": [
+    "BootstrapMixin",
     "LoadModMixin",
-    "WorldGenerationProgressLoggerMixin",
-    "SimpleResourceReloadMixin",
     "ReloadableResourceManagerImplMixin",
-    "BootstrapMixin"
+    "SimpleResourceReloadMixin",
+    "WorldGenerationProgressLoggerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
